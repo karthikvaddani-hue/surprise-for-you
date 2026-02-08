@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Special Gift 🎁</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="screen" id="step1">
+    <h1>⚠ WARNING ⚠</h1>
+    <p class="fun-text">
+        You are about to open<br>
+        a <b>VERY SPECIAL</b> gift 🎁<br>
+        Side effects may include:<br>
+        Smiling, laughing, and feeling loved 😌
+    </p>
+    <button onclick="nextStep(2)">I’m Ready 😎</button>
+</div>
+
+<div class="screen hidden" id="step2">
+    <p class="fun-text">
+        Loading awesomeness... ⏳<br>
+        Please wait 🫣
+    </p>
+    <button onclick="nextStep(3)">Why so slow 😤</button>
+</div>
+
+<div class="screen hidden" id="step3">
+    <p class="fun-text">
+        Okay fine 😆<br><br>
+        You are officially one of those people<br>
+        who makes life less boring 💥<br><br>
+        Certified ⭐ SPECIAL ⭐
+    </p>
+    <button onclick="nextStep(4)">Show proof 👀</button>
+</div>
+
+<div class="screen hidden" id="step4">
+    <p class="fun-text">
+        Proof №1 🧾<br>
+        You survived this gift till now 😜<br><br>
+        Proof №2 🧾<br>
+        Someone thought about you enough<br>
+        to make THIS 😌
+    </p>
+    <button onclick="nextStep(5)">Who 😳</button>
+</div>
+
+<div class="screen hidden" id="step5">
+    <h2>🎉 SURPRISE 🎉</h2>
+    <p class="fun-text">
+        This wish is made specially for YOU 💫<br><br>
+        Never forget:<br>
+        You matter 💙<br>
+        You are appreciated 🌟<br>
+        And yes… you’re kinda awesome 😏
+    </p>
+    <button onclick="finalStep()">Final Reveal 🎊</button>
+</div>
+
+<div class="screen hidden" id="final">
+    <h1>💝 FROM KARTHIK 💝</h1>
+    <p class="fun-text">
+        Just someone who wanted<br>
+        to make you smile today 😌<br><br>
+        If you smiled even a little,<br>
+        mission accomplished ✅
+    </p>
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+<script>
+function nextStep(step) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+    document.getElementById('step' + step).classList.remove('hidden');
+}
+
+function finalStep() {
+    document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+    document.getElementById('final').classList.remove('hidden');
+    launchConfetti();
+}
+
+function launchConfetti() {
+    const confetti = document.getElementById('confetti');
+    for (let i = 0; i < 60; i++) {
+        const span = document.createElement('span');
+        span.style.left = Math.random() * 100 + 'vw';
+        span.style.background = `hsl(${Math.random()*360}, 80%, 60%)`;
+        span.style.animationDelay = Math.random() * 3 + 's';
+        confetti.appendChild(span);
+    }
+}
+</script>
+
+</body>
+</html>
